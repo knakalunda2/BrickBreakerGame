@@ -23,6 +23,8 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
     private int highScore = 0;
     private final BufferedImage backgroundImage;
     private MapGenerator map;
+    private ImageIcon paddleIcon;
+    private ImageIcon ballIcon;
 
     public Gameplay() throws IOException {
         map = new MapGenerator(2,2);
@@ -31,7 +33,8 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
         setFocusTraversalKeysEnabled(false);
         timer = new Timer(delay, this);
         timer.start();
-
+        paddleIcon = new ImageIcon("/Users/queenkev/Downloads/paddleicon.png");
+        ballIcon = new ImageIcon("/Users/queenkev/Downloads/ballicon.png");
         backgroundImage = ImageIO.read(new File("/Users/queenkev/Downloads/galaxy.jpeg")); // Change "background.jpg" to your image file path
 
     }
@@ -64,12 +67,12 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
 
 
         //the paddle
-        g.setColor(Color.blue);
-        g.fillRect(playerX, 550 ,100 ,8);
+       Image paddleImage =  paddleIcon.getImage();
+       g.drawImage(paddleImage, playerX, 500,100,100, this);
 
         //the ball
-        g.setColor(Color.yellow);
-        g.fillOval(ballposX, ballposY ,20 ,20);
+      Image ballImage = ballIcon.getImage();
+      g.drawImage(ballImage, ballposX, ballposY, 20, 20, this);
 
         if(totalBricks <= 0){
             play = false;
