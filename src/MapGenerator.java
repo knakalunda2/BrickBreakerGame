@@ -33,3 +33,4 @@ public class MapGenerator {
         map[row][col] = value;
     }
 }
+//Test 
