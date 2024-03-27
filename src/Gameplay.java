@@ -33,9 +33,9 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
         setFocusTraversalKeysEnabled(false);
         timer = new Timer(delay, this);
         timer.start();
-        paddleIcon = new ImageIcon("/Users/queenkev/Downloads/paddleicon.png");
-        ballIcon = new ImageIcon("/Users/queenkev/Downloads/ballicon.png");
-        backgroundImage = ImageIO.read(new File("/Users/queenkev/Downloads/galaxy.jpeg")); // Change "background.jpg" to your image file path
+        paddleIcon = new ImageIcon("/SchoolWork/softwareDesign/BrickBreakerGame/src/paddle.jpg");
+        ballIcon = new ImageIcon("/SchoolWork/softwareDesign/BrickBreakerGame/src/ball.png");
+        backgroundImage = ImageIO.read(new File("/SchoolWork/softwareDesign/BrickBreakerGame/src/background.jpg")); // Change "background.jpg" to your image file path
 
     }
 
@@ -68,11 +68,11 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener {
 
         //the paddle
        Image paddleImage =  paddleIcon.getImage();
-       g.drawImage(paddleImage, playerX, 500,100,100, this);
+       g.drawImage(paddleImage, playerX, 500,80,80, this);
 
         //the ball
       Image ballImage = ballIcon.getImage();
-      g.drawImage(ballImage, ballposX, ballposY, 20, 20, this);
+      g.drawImage(ballImage, ballposX, ballposY, 10, 10, this);
 
         if(totalBricks <= 0){
             play = false;
